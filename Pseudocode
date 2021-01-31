@@ -1,0 +1,30 @@
+Om het spel master mind te kunnen programmeren moet ik eerst een pseudocode schrijven, zodat ik weet welke functies/classes ik nodig heb om het programma te runnen.
+
+Aan het begin moet je kunnen kiezen of je het mastermind wilt zijn of juist de codemaker.
+
+
+Mens vs Computer:
+
+Uitleg geven van hoe het spel werkt.
+Als mens tegen computer moet de computer een code verzinnen. Deze "kleur code" maken we door letters A B C D E F.
+Als mens moet je dan 8 "vragen" kunnen stellen, totdat je de jusite code hebt.
+Je moet dan per vraag feedback krijgen in de vorm van (1, 2)
+    De 1 staat voor het aantal kleuren dat je goed hebt en op de juiste positie staan.
+    De 2 staat voor het aantal kleuren dat je goed hebt , maar niet op de juiste positie staan.
+Na de 8 vragen moet de computer vertellen dat je verloren hebt.
+
+Functies:
+    1. Computer verzint random een code. met de letters A B C D E F
+
+    2. Computer moet feedback terug geven
+    Doormiddel van (A, B)
+    Door de vraag te lezen van de speler en als de letter goed is en op de jusite index. dan voeg je bij A een op en als het goed is maar niet op de juiste index dan voeg je bij B eentje op.
+
+    3. Er moet een uitleg komen aan begin van het spel.
+
+    4. De computer moet zeggen als je het goed geraden hebt.
+
+    5. Computer moet zeggen als je het niet geraden hebt.
+
+
+Computer vs Mens:
