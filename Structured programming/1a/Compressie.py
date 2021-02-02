@@ -8,7 +8,8 @@ def compression(file):
 
 
         f.close()
-    new_file.replace("\n", "")
+
+    new_file = new_file.replace("\n", "")
 
     with open(file, "w") as f:
         f.write(new_file)
