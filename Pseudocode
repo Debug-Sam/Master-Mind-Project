@@ -3,6 +3,18 @@ Om het spel master mind te kunnen programmeren moet ik eerst een pseudocode schr
 Aan het begin moet je kunnen kiezen of je het mastermind wilt zijn of juist de codemaker.
 
 
+Het hoofd menu:
+
+Play
+    Play against computer
+        Be the code-breaker
+        be the code-maker
+        Back
+    Back
+Quit
+
+you need to give it input with nubmers to controle the menu.
+
 Mens vs Computer:
 
 Uitleg geven van hoe het spel werkt.
@@ -15,16 +27,59 @@ Na de 8 vragen moet de computer vertellen dat je verloren hebt.
 
 Functies:
     1. Computer verzint random een code. met de letters A B C D E F
+            hiervoor kun je de library random voor gebruiken.
 
     2. Computer moet feedback terug geven
-    Doormiddel van (A, B)
-    Door de vraag te lezen van de speler en als de letter goed is en op de jusite index. dan voeg je bij A een op en als het goed is maar niet op de juiste index dan voeg je bij B eentje op.
+        Doormiddel van (A, B)
+        Door de vraag te lezen van de speler en als de letter goed is en op de jusite index
+        dan voeg je bij A een op en als het goed is maar niet op de juiste index dan voeg je bij B eentje op.
 
     3. Er moet een uitleg komen aan begin van het spel.
 
     4. De computer moet zeggen als je het goed geraden hebt.
 
     5. Computer moet zeggen als je het niet geraden hebt.
+        en hoeveel kansen je nog hebt
 
 
 Computer vs Mens:
+
+nu precies hetzelfde maar dan andersom.
+De mens zal een Code maken met A B C D E F die de 6 kleuren representeren
+De computer gaat proberen de code te kraken en zal met een algoritme werken, die dan de gokken aanpast voor de informatie die die krijgt.
+Na elke gok moet de speler(mens) een antwoord geven dat weer bestaat uit een tuple van (A, B). met dezelfde principes.
+
+Functies:
+    Algoritme dat eerst alle mogelijke gokken een random gok kiest
+        Het programma moet dus eerst bepalen met welke gok ze de grootste kans hebben op goede feedback, en welke feedback het handigst is.
+        In het document staat de formule voor het uitrekenen voor The expected size gok (bekijk de video)
+
+        Je berekent eerst ALLE mogelijke gokken. Dan moet je zorgen dat die een expected size gok doet, waar AABB uit zou moeten komen.
+        Dan moet die op basis van de feedback een nieuw aantal gokken bereken waarna die het process herhaalt met alle volgende rondes feedback.
+        maar hoe zorg je ervoor dat die weet wat de feedback zegt. met een loop door alle gokken heen. Waarnaar je zegt bij (0,0)
+        dan zij alle letters die je hebt gebruikt niet in de code dus alle mogelijke gokken met die letter, moeten er uit gefilterd worden
+        Bij (0,0) alle letters uit filteren
+        bij (0,1) (1letter is goed maar niet op de juiste locatie) dus geen letters uit filteren
+        bij (0,2) geen letters uit filteren
+        bij (0,3) geen letters uit filteren
+        bij (0,4) alleen dezelfde letters blijven gebruiken
+        bij (1,0) Geen letters uitfilteren
+        bij (1,1) geen letters uit filteren
+        bij (1,2) geen letters uit filteren
+        bij (1,3) geen letters uit filteren
+        bij (2,0) geen letters uit filteren
+        bij (2,1) geen letters uit filteren
+        bij (2,2) geen letters uit filteren
+        bij (3,0)
+        bij (4,0) antwoord is goed
+
+
+    Algoritme dat met de feedback de lijst met gokken kleiner maakt en dan weer een van die gokken kiest.
+    Zo door tot de 8 gokken gedaan zijn, of totdat de computer het goed geraden heeft
+
+    De speler moet een menu hebben van wat ze willen doen:
+        Feedback geven
+        Zeggen dat de computer het goed heeft
+        Of terug gaan naar het hoofd menu
+
+    De speler moet een code kunnen verzinnen
