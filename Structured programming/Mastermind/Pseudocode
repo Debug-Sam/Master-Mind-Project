@@ -58,20 +58,7 @@ Functies:
         Dan moet die op basis van de feedback een nieuw aantal gokken bereken waarna die het process herhaalt met alle volgende rondes feedback.
         maar hoe zorg je ervoor dat die weet wat de feedback zegt. met een loop door alle gokken heen. Waarnaar je zegt bij (0,0)
         dan zij alle letters die je hebt gebruikt niet in de code dus alle mogelijke gokken met die letter, moeten er uit gefilterd worden
-        Bij (0,0) alle letters uit filteren
-        bij (0,1) (1letter is goed maar niet op de juiste locatie) dus geen letters uit filteren
-        bij (0,2) geen letters uit filteren
-        bij (0,3) geen letters uit filteren
-        bij (0,4) alleen dezelfde letters blijven gebruiken
-        bij (1,0) Geen letters uitfilteren
-        bij (1,1) geen letters uit filteren
-        bij (1,2) geen letters uit filteren
-        bij (1,3) geen letters uit filteren
-        bij (2,0) geen letters uit filteren
-        bij (2,1) geen letters uit filteren
-        bij (2,2) geen letters uit filteren
-        bij (3,0)
-        bij (4,0) antwoord is goed
+
 
 
     Algoritme dat met de feedback de lijst met gokken kleiner maakt en dan weer een van die gokken kiest.
