@@ -18,7 +18,11 @@ class Menu():
 
 
 
-    def menu_codemaker(self):
+    def menu_codemaker_simple(self, code):
+
+        print("your code = " + code)
+        print("computers first guess = " + DC.)
+
         return
 
     def menu(self):
@@ -31,7 +35,10 @@ class Menu():
         option = input("Your choice: ")
 
         if option == "1":
-            print("Sorry we don't have that function yet")
+            print("You have to make a code existing of: A, B, C, D, E or F")
+            print("For example: AABC")
+            code = input("Make your code: ")
+            self.menu_codemaker_simple(code=code)
 
         elif option == "2":
             print("The computer has thought of a code")

@@ -39,7 +39,16 @@ class DataController():
         feedback = goodindex, good
         return feedback
 
+    def simple_stratagy(self, guess, feedback):
+        return
 
 
 
-
+    def first_guess(self):
+        combinations = list(product(["A", "B", "C", "D", "E", "F"], repeat=4))
+        lst = []
+        for i in combinations:
+            b = list(i)
+            lst.append(b)
+        random_seq = random.choice(lst)
+        return random_seq
