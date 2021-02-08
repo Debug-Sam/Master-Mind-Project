@@ -3,8 +3,12 @@ from controllers.datacontroller import DataController as DC
 
 class Menu():
 
+    global var_DC
+    var_DC = DC()
+
     def __init__(self):
         pass
+
 
     def menu_codebreaker(self, code):
 
@@ -14,12 +18,16 @@ class Menu():
             print("Congratulations you've cracked the code!")
             self.menu()
         else:
-            print(f"Feedback: {DC.feedback(guess=guess, code=code)}")
+            print(f"Feedback: {var_DC.feedback(guess=guess, code=code)}")
 
 
 
-    def menu_codemaker(self):
-        return
+    def menu_codemaker_simple(self, code):
+
+        while True:
+            print("your code = " + code)
+            print("computers first guess = " + var_DC.first_guess())
+
 
     def menu(self):
         string = """
@@ -31,12 +39,15 @@ class Menu():
         option = input("Your choice: ")
 
         if option == "1":
-            print("Sorry we don't have that function yet")
+            print("You have to make a code existing of: A, B, C, D, E or F")
+            print("For example: AABC")
+            code = input("Make your code: ")
+            self.menu_codemaker_simple(code=code)
 
         elif option == "2":
             print("The computer has thought of a code")
 
-            random_code = DC.random_code()
+            random_code = var_DC.random_code()
 
             while True:
                 amount += -1
