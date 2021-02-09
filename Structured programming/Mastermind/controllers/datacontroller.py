@@ -8,13 +8,16 @@ class DataController():
         pass
 
     @staticmethod
-    def random_code():
+    def list_comb():
         combinations = list(product(["A", "B", "C", "D", "E", "F"], repeat=4))
         lst = []
         for i in combinations:
             b = list(i)
             lst.append(b)
-        random_seq = random.choice(lst)
+        return lst
+
+    def random_code(self):
+        random_seq = random.choice(self.list_comb())
         string = ""
         for j in random_seq:
             for m in j:
@@ -27,31 +30,17 @@ class DataController():
         code = list(code)
         temp_guess = guess.copy()
 
-        goodindex = 0
-        good = 0
+        black = 0
+        white = 0
 
         for i in range(len(code)):
             if guess[i] == code[i]:
-                goodindex += 1
+                black += 1
                 temp_guess[i] = "X"
 
         for j in temp_guess:
             if j in code:
-                good += 1
+                white += 1
 
-        feedback = goodindex, good
+        feedback = black, white
         return feedback
-
-    def simple_stratagy(self, guess, feedback):
-        return
-
-
-
-    def first_guess(self):
-        combinations = list(product(["A", "B", "C", "D", "E", "F"], repeat=4))
-        lst = []
-        for i in combinations:
-            b = list(i)
-            lst.append(b)
-        random_seq = random.choice(lst)
-        return random_seq

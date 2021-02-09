@@ -1,10 +1,12 @@
 from controllers.datacontroller import DataController as DC
-
+from controllers.simple import SimpleStratagy as SS
 
 class Menu():
 
     global var_DC
     var_DC = DC()
+    global var_SS
+    var_SS = SS()
 
     def __init__(self):
         pass
@@ -22,11 +24,12 @@ class Menu():
 
 
 
-    def menu_codemaker_simple(self, code):
+    def menu_codemaker_simple(self):
 
-        while True:
-            print("your code = " + code)
-            print("computers first guess = " + var_DC.first_guess())
+        var_SS.simple_stratagy()
+
+
+
 
 
     def menu(self):
@@ -42,7 +45,8 @@ class Menu():
             print("You have to make a code existing of: A, B, C, D, E or F")
             print("For example: AABC")
             code = input("Make your code: ")
-            self.menu_codemaker_simple(code=code)
+            print("your code: " + code)
+            self.menu_codemaker_simple()
 
         elif option == "2":
             print("The computer has thought of a code")
