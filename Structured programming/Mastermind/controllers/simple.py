@@ -2,6 +2,7 @@ from controllers.datacontroller import DataController as DC
 from itertools import product
 import random
 
+
 class SimpleStratagy():
 
     def __init__(self):
@@ -9,63 +10,32 @@ class SimpleStratagy():
         var_DC = DC()
 
     def simple_stratagy(self):
-        lst = self.filter_lst()
-        lst_lst = lst[0]
 
+        print("You have to make a code existing of: A, B, C, D, E or F")
+        print("For example: AABC")
+        code = input("Make your code: ")
+        print("your code: " + code)
+
+
+        list_combinations = self.make_lst()
+        guess = self.guess(list_combinations)
         while True:
-            guess = self.guess(lst_lst)
-            print("Computer guessed: " + guess)
-            black = input("How many black pins: ")
-            white = input("How many white pins: ")
-            feedback = black + white
-            lst_lst = self.feedback(feedback=feedback, guess=guess)
+            feedback = self.feedback(guess, code)
+            new_lst = self.filter_lst(list_combinations, guess, feedback)
+            guess = self.guess(new_lst)
+            print("The computer guessed" + guess)
+            answer = input("Did the computer get it right? yes or no: ")
+            if answer == "yes":
+                break
 
 
-    def feedback(self, feedback, guess):
-
-        filter_lst = self.filter_lst()
-        filter_lst_letter_lst = filter_lst[1]
-        filter_lst_lst = filter_lst[0]
-
-        if feedback == 1:
-            return filter_lst_lst
-        elif feedback == 2:
-            return filter_lst_lst
-        elif feedback == 3:
-            return filter_lst_lst
-        elif feedback == 4:
-            filter_lst = self.filter_lst(answer=guess)
-            return filter_lst[0]
-        elif feedback == 0:
-            filter_lst = self.filter_lst(filter_lst_lst, filter_lst_letter_lst, guess)
-            return filter_lst[0]
-
-
-    def filter_lst(self, letter_lst=None, letters=None, answer=None):
-
-        if answer != None:
-            new_lst = []
-            for j in answer:
-                new_lst.append(j)
-            combinations = list(product(new_lst, repeat=4))
-            lst = []
-            for i in combinations:
-                b = list(i)
-                lst.append(b)
-            return lst, letter_lst
-
-        if letter_lst == None:
-            letter_lst = ['A', 'B', 'C', 'D', 'E', 'F']
-
-        if letters != None:
-            for i in letters:
-                letter_lst.remove(i)
-        combinations = list(product(letter_lst, repeat=4))
+    def make_lst(self):
+        combinations = list(product(['A', 'B', 'C', 'D', 'E', 'F'], repeat=4))
         lst = []
         for i in combinations:
             b = list(i)
             lst.append(b)
-        return lst, letter_lst
+        return lst
 
     def guess(self, lst):
         random_seq = random.choice(lst)
@@ -74,3 +44,32 @@ class SimpleStratagy():
             for m in j:
                 string += m
         return string
+
+    def feedback(self, guess, code):
+        guess = list(guess)
+        code = list(code)
+        temp_guess = guess.copy()
+
+        black = 0
+        white = 0
+
+        for i in range(len(code)):
+            if guess[i] == code[i]:
+                black += 1
+                temp_guess[i] = "X"
+
+        for j in temp_guess:
+            if j in code:
+                white += 1
+
+        feedback = black, white
+        return feedback
+
+    def filter_lst(self, lst, guess, feedback):
+        new_lst = []
+
+        for i in lst:
+            if feedback == self.feedback(guess, i):
+                new_lst.append(i)
+
+        return new_lst

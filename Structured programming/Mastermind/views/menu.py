@@ -1,5 +1,5 @@
 from controllers.datacontroller import DataController as DC
-from controllers.simple import SimpleStratagy as SS
+from views.menu import SimpleStratagy as SS
 
 class Menu():
 
@@ -10,7 +10,6 @@ class Menu():
 
     def __init__(self):
         pass
-
 
     def menu_codebreaker(self, code):
 
@@ -23,14 +22,8 @@ class Menu():
             print(f"Feedback: {var_DC.feedback(guess=guess, code=code)}")
 
 
-
     def menu_codemaker_simple(self):
-
         var_SS.simple_stratagy()
-
-
-
-
 
     def menu(self):
         string = """
@@ -42,10 +35,6 @@ class Menu():
         option = input("Your choice: ")
 
         if option == "1":
-            print("You have to make a code existing of: A, B, C, D, E or F")
-            print("For example: AABC")
-            code = input("Make your code: ")
-            print("your code: " + code)
             self.menu_codemaker_simple()
 
         elif option == "2":
