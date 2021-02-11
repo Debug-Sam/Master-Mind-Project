@@ -32,13 +32,19 @@ class SimpleStratagy():
                     if guess == code:
                         break
         elif option2 == "2":
-            print("You have to make a code existing of: A, B, C, D, E or F")
-            print("For example: AABC")
+            letter_amount = input("How many letter options should the code have: ")
+            letter_lst = []
+            for l in letter_amount:
+                letter_lst.append(l)
+            print(letter_lst)
+            length = int(input("How long should the code be: "))
+            print("You have to make a code existing of: " + letter_amount)
             code = input("Make your code: ")
             print("your code: " + code)
 
 
-            list_combinations = self.make_lst()
+
+            list_combinations = self.make_lst_letters(letters=letter_lst, length=length)
             guess = self.guess(list_combinations)
             while True:
                 feedback = self.feedback(guess, code)
@@ -51,6 +57,14 @@ class SimpleStratagy():
 
     def make_lst(self):
         combinations = list(product(['A', 'B', 'C', 'D', 'E', 'F'], repeat=4))
+        lst = []
+        for i in combinations:
+            b = list(i)
+            lst.append(b)
+        return lst
+
+    def make_lst_letters(self, letters, length):
+        combinations = list(product(letters, repeat=length))
         lst = []
         for i in combinations:
             b = list(i)
