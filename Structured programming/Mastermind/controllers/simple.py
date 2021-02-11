@@ -23,7 +23,7 @@ class SimpleStratagy():
             feedback = self.feedback(guess, code)
             new_lst = self.filter_lst(list_combinations, guess, feedback)
             guess = self.guess(new_lst)
-            print("The computer guessed" + guess)
+            print("The computer guessed: " + guess)
             answer = input("Did the computer get it right? yes or no: ")
             if answer == "yes":
                 break

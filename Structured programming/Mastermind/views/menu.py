@@ -1,5 +1,5 @@
 from controllers.datacontroller import DataController as DC
-from views.menu import SimpleStratagy as SS
+from controllers.simple import SimpleStratagy as SS
 
 class Menu():
 
