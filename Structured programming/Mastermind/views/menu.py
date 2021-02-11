@@ -1,5 +1,5 @@
 from controllers.datacontroller import DataController as DC
-from views.menu import SimpleStratagy as SS
+from controllers.simple import SimpleStratagy as SS
 
 class Menu():
 
@@ -35,7 +35,9 @@ class Menu():
         option = input("Your choice: ")
 
         if option == "1":
-            self.menu_codemaker_simple()
+
+
+                self.menu_codemaker_simple()
 
         elif option == "2":
             print("The computer has thought of a code")

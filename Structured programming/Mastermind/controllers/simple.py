@@ -11,22 +11,42 @@ class SimpleStratagy():
 
     def simple_stratagy(self):
 
-        print("You have to make a code existing of: A, B, C, D, E or F")
-        print("For example: AABC")
-        code = input("Make your code: ")
-        print("your code: " + code)
+        string2 = """
+        1: Average
+        2: Play vs Computer
+        """
+        print(string2)
+        option2 = input("Your choice: ")
+        if option2 == "1":
+            count = int(input("Sample size: "))
+            while count != 0:
+                count += -1
+                list_combinations = self.make_lst()
+                guess = self.guess(list_combinations)
+                code = self.guess(list_combinations)
+                while True:
+                    feedback = self.feedback(guess, code)
+                    new_lst = self.filter_lst(list_combinations, guess, feedback)
+                    guess = self.guess(new_lst)
+                    print("The computer guessed: " + guess)
+                    if guess == code:
+                        break
+        elif option2 == "2":
+            print("You have to make a code existing of: A, B, C, D, E or F")
+            print("For example: AABC")
+            code = input("Make your code: ")
+            print("your code: " + code)
 
 
-        list_combinations = self.make_lst()
-        guess = self.guess(list_combinations)
-        while True:
-            feedback = self.feedback(guess, code)
-            new_lst = self.filter_lst(list_combinations, guess, feedback)
-            guess = self.guess(new_lst)
-            print("The computer guessed" + guess)
-            answer = input("Did the computer get it right? yes or no: ")
-            if answer == "yes":
-                break
+            list_combinations = self.make_lst()
+            guess = self.guess(list_combinations)
+            while True:
+                feedback = self.feedback(guess, code)
+                new_lst = self.filter_lst(list_combinations, guess, feedback)
+                guess = self.guess(new_lst)
+                print("The computer guessed: " + guess)
+                if guess == code:
+                    break
 
 
     def make_lst(self):
