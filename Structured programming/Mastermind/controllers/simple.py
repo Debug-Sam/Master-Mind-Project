@@ -30,7 +30,7 @@ class SimpleStratagy():
                     count_amount += 1
                     feedback = self.feedback(guess, code)
                     new_lst = self.filter_lst(list_combinations, guess, feedback)
-                    guess = self.guess(new_lst)
+                    guess = self.new_guess(new_lst)
                     if guess == code:
                         victory = "The code was: " + guess
                         print(victory)
@@ -54,7 +54,7 @@ class SimpleStratagy():
             while True:
                 feedback = self.feedback(guess, code)
                 new_lst = self.filter_lst(list_combinations, guess, feedback)
-                guess = self.guess(new_lst)
+                guess = self.new_guess(new_lst)
                 print("The computer guessed: " + guess)
                 if guess == code:
                     victory = "The code was: " + guess
@@ -78,6 +78,14 @@ class SimpleStratagy():
         return lst
 
     def guess(self, lst):
+        random_seq = random.choice(lst)
+        string = ""
+        for j in random_seq:
+            for m in j:
+                string += m
+        return string
+
+    def new_guess(self, lst):
         random_seq = random.choice(lst)
         string = ""
         for j in random_seq:
