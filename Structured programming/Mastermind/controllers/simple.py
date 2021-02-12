@@ -19,18 +19,25 @@ class SimpleStratagy():
         option2 = input("Your choice: ")
         if option2 == "1":
             count = int(input("Sample size: "))
+            count_amount = 0
+            sample_size = count
             while count != 0:
                 count += -1
                 list_combinations = self.make_lst()
                 guess = self.guess(list_combinations)
                 code = self.guess(list_combinations)
                 while True:
+                    count_amount += 1
                     feedback = self.feedback(guess, code)
                     new_lst = self.filter_lst(list_combinations, guess, feedback)
                     guess = self.guess(new_lst)
-                    print("The computer guessed: " + guess)
                     if guess == code:
+                        victory = "The code was: " + guess
+                        print(victory)
                         break
+            average = round(count_amount/sample_size)
+            return print(f"Average amount of guesses: {average}" )
+
         elif option2 == "2":
             letter_amount = input("How many letter options should the code have: ")
             letter_lst = []
@@ -42,8 +49,6 @@ class SimpleStratagy():
             code = input("Make your code: ")
             print("your code: " + code)
 
-
-
             list_combinations = self.make_lst_letters(letters=letter_lst, length=length)
             guess = self.guess(list_combinations)
             while True:
@@ -52,7 +57,8 @@ class SimpleStratagy():
                 guess = self.guess(new_lst)
                 print("The computer guessed: " + guess)
                 if guess == code:
-                    break
+                    victory = "The code was: " + guess
+                    return print(victory)
 
 
     def make_lst(self):
