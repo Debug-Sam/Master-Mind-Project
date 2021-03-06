@@ -6,8 +6,8 @@ import random
 class SimpleStratagy():
 
     def __init__(self):
-        global var_DC
-        var_DC = DC()
+        self.var_DC = DC()
+
 
     def simple_stratagy(self):
 

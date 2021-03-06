@@ -1,15 +1,15 @@
 from controllers.datacontroller import DataController as DC
 from controllers.simple import SimpleStratagy as SS
+from controllers.worstcase import Worstcase as WC
 
 class Menu():
 
-    global var_DC
-    var_DC = DC()
-    global var_SS
-    var_SS = SS()
+
 
     def __init__(self):
-        pass
+        self.var_DC = DC()
+        self.var_SS = SS()
+        self.var_WC = WC()
 
     def menu_codebreaker(self, code):
 
@@ -19,11 +19,14 @@ class Menu():
             print("Congratulations you've cracked the code!")
             self.menu()
         else:
-            print(f"Feedback: {var_DC.feedback(guess=guess, code=code)}")
+            print(f"Feedback: {self.var_DC.feedback(guess=guess, code=code)}")
 
 
     def menu_codemaker_simple(self):
-        var_SS.simple_stratagy()
+        self.var_SS.simple_stratagy()
+
+    def menu_codemaker_worstcase(self):
+        self.var_WC.worstcase()
 
     def menu(self):
         string = """
@@ -37,12 +40,12 @@ class Menu():
         if option == "1":
 
 
-                self.menu_codemaker_simple()
+                self.menu_codemaker_worstcase()
 
         elif option == "2":
             print("The computer has thought of a code")
 
-            random_code = var_DC.random_code()
+            random_code = self.var_DC.random_code()
 
             while True:
                 amount += -1
