@@ -74,3 +74,14 @@ Functies:
 
 Worst case stratagy:
 
+    > Je maakt eerst een lijst met alle mogelijkheden.
+    > deze lijst deel je op in de volgende verschillende lijsten die alle mogelijkheden omvatten [ AAAA, AAAB, AABB, AABC, ABCD ]
+    > maak een lijst met alle feedback mogelijkheden
+    > zorg ervoor dat een functie het volgende doet:
+        kijk per een van de 5 lijsten welke mogelijke feedback je krijgt bij welke gok en hoeveel gokken er dan overblijven
+    > pak dan van alle verschillende lijsten het hoogste aantal mogelijk volgende gokken van een van de 5 mogelijke gokken.
+    > kijk dan van die lijsten welke lijst het laagste mogelijk volgende gokken heeft. en kies de bijbehorende gok die daar bij hoort.
+        dit zou dan een gok moeten zijn uit de lijst AABB
+    > nadat je de gok gedaan hebt en feedback gekregen heb ga dan verder met het creeeren van een lijst die kijkt hoeveel mogelijke gokken je hebt met de bijbehorende
+    feedback
+    > loop dat totdat de computer het antwoord heeft
